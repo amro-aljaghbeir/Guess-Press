@@ -126,6 +126,7 @@ const AUCTION_REVEAL = [
 
 const ELEMENTS = {
   rulesBtn: document.getElementById("rulesBtn"),
+  newGameBtn: document.getElementById("newGameBtn"),
   backToStartBtn: document.getElementById("backToStartBtn"),
 };
 
@@ -313,6 +314,7 @@ function startGameMode() {
   state.scores = state.mode === "auction" ? [1500, 1500] : [0, 0];
   state.activeTeam = 0;
   state.usedQuestions = new Set();
+  buildQuestionIndex();
   updateScoreboard();
 
   if (state.mode === "classic") {
@@ -330,8 +332,6 @@ function initClassicMode() {
   state.classic = {
     board: buildBoard(state.topics, ["easy", "easy", "medium", "medium", "hard", "hard"]),
     activeTile: null,
-    phase: "select",
-    answeringTeam: null,
     timer: 0,
     reveal: false,
   };
@@ -384,8 +384,6 @@ function renderClassicBoard() {
 function openClassicQuestion(tile) {
   const classic = state.classic;
   classic.activeTile = tile;
-  classic.phase = "team1";
-  classic.answeringTeam = state.activeTeam;
   classic.reveal = false;
   const timerSeconds = CLASSIC_TIMERS[tile.difficulty];
   startTimer(timerSeconds, (remaining) => updateClassicModal(remaining));
@@ -398,16 +396,8 @@ function updateClassicModal(remaining) {
   const question = getQuestionById(tile.questionId);
   if (remaining === 0 && !classic.reveal) {
     clearTimers();
-    if (classic.phase === "team1") {
-      classic.phase = "team2";
-      classic.answeringTeam = state.activeTeam === 0 ? 1 : 0;
-      const timerSeconds = CLASSIC_TIMERS[tile.difficulty];
-      startTimer(timerSeconds, (seconds) => updateClassicModal(seconds));
-      updateClassicModal(timerSeconds);
-    } else {
-      classic.reveal = true;
-      updateClassicModal(0);
-    }
+    classic.reveal = true;
+    updateClassicModal(0);
     return;
   }
   const container = document.createElement("div");
@@ -427,17 +417,9 @@ function updateClassicModal(remaining) {
     nextBtn.className = "primary-btn";
     nextBtn.textContent = "Next";
     nextBtn.addEventListener("click", () => {
-      if (classic.phase === "team1") {
-        classic.phase = "team2";
-        classic.answeringTeam = state.activeTeam === 0 ? 1 : 0;
-        const timerSeconds = CLASSIC_TIMERS[tile.difficulty];
-        startTimer(timerSeconds, (seconds) => updateClassicModal(seconds));
-        updateClassicModal(timerSeconds);
-      } else {
-        classic.reveal = true;
-        clearTimers();
-        updateClassicModal(0);
-      }
+      classic.reveal = true;
+      clearTimers();
+      updateClassicModal(0);
     });
     actionRow.appendChild(nextBtn);
 
@@ -798,6 +780,7 @@ function openRiskQuestion(tile) {
   risk.activeTile = tile;
   risk.rerolled = false;
   risk.answerRevealed = false;
+  risk.changeUsed = false;
   startTimer(CLASSIC_TIMERS[tile.difficulty], (remaining) => updateRiskModal(remaining));
   updateRiskModal(CLASSIC_TIMERS[tile.difficulty]);
 }
@@ -842,9 +825,9 @@ function updateRiskModal(remaining) {
     actions.append(nextBtn);
   } else {
     const changeBtn = document.createElement("button");
-    changeBtn.className = "secondary-btn";
+    changeBtn.className = `secondary-btn${risk.changeUsed ? "" : " highlight-btn"}`;
     changeBtn.textContent = "Change Question (Half Points)";
-    changeBtn.disabled = risk.rerolled;
+    changeBtn.disabled = risk.changeUsed;
     changeBtn.addEventListener("click", () => rerollRiskQuestion());
 
     const teamA = document.createElement("button");
@@ -870,10 +853,18 @@ function updateRiskModal(remaining) {
 function rerollRiskQuestion() {
   const risk = state.risk;
   const tile = risk.activeTile;
-  const newQuestion = getRandomQuestion(tile.topic, tile.difficulty);
+  if (risk.changeUsed) return;
+  let newQuestion = getRandomQuestion(tile.topic, tile.difficulty);
+  if (!newQuestion) {
+    const candidates = state.topics.filter((topic) => state.questionIndex[tile.difficulty][topic]?.length);
+    if (candidates.length) {
+      newQuestion = getRandomQuestion(randomItem(candidates), tile.difficulty);
+    }
+  }
   if (!newQuestion) return;
   tile.questionId = newQuestion.id;
   risk.rerolled = true;
+  risk.changeUsed = true;
   risk.answerRevealed = false;
   updateRiskModal(CLASSIC_TIMERS[tile.difficulty]);
 }
@@ -1032,6 +1023,10 @@ function initAuctionMode() {
     round: 1,
     activeTeam: 0,
     currentQuestion: null,
+    phase: "bet",
+    primaryResult: null,
+    secondaryResult: null,
+    currentBet: 0,
   };
   renderAuctionRound();
 }
@@ -1082,6 +1077,10 @@ function renderAuctionRound() {
 function openAuctionQuestion(bet) {
   const auction = state.auction;
   const { question, topic, difficulty } = auction.currentQuestion;
+  auction.phase = "primary";
+  auction.currentBet = bet;
+  auction.primaryResult = null;
+  auction.secondaryResult = null;
   auction.answerRevealed = false;
   startTimer(30, (remaining) => updateAuctionModal(bet, question, topic, difficulty, remaining));
   updateAuctionModal(bet, question, topic, difficulty, 30);
@@ -1090,6 +1089,13 @@ function openAuctionQuestion(bet) {
 function updateAuctionModal(bet, question, topic, difficulty, remaining) {
   if (remaining === 0 && !state.auction.answerRevealed) {
     clearTimers();
+    if (state.auction.phase === "primary") {
+      state.auction.phase = "secondary";
+      startTimer(30, (remainingSecondary) => updateAuctionSecondaryModal(bet, question, topic, difficulty, remainingSecondary));
+      updateAuctionSecondaryModal(bet, question, topic, difficulty, 30);
+      return;
+    }
+    state.auction.phase = "reveal";
     state.auction.answerRevealed = true;
     updateAuctionModal(bet, question, topic, difficulty, 0);
     return;
@@ -1114,99 +1120,106 @@ function updateAuctionModal(bet, question, topic, difficulty, remaining) {
     nextBtn.textContent = "Next";
     nextBtn.addEventListener("click", () => {
       clearTimers();
+      if (state.auction.phase === "primary") {
+        state.auction.phase = "secondary";
+        startTimer(30, (remainingSecondary) => updateAuctionSecondaryModal(bet, question, topic, difficulty, remainingSecondary));
+        updateAuctionSecondaryModal(bet, question, topic, difficulty, 30);
+        return;
+      }
+      state.auction.phase = "reveal";
       state.auction.answerRevealed = true;
       updateAuctionModal(bet, question, topic, difficulty, 0);
     });
     actions.append(nextBtn);
   } else {
-    const primaryCorrect = document.createElement("button");
-    primaryCorrect.className = "primary-btn";
-    primaryCorrect.textContent = `${state.teams[state.auction.activeTeam]} Correct`;
-    primaryCorrect.addEventListener("click", () => resolveAuction(bet, true));
+    if (state.auction.primaryResult === null) {
+      const primaryCorrect = document.createElement("button");
+      primaryCorrect.className = "primary-btn";
+      primaryCorrect.textContent = `${state.teams[state.auction.activeTeam]} Correct`;
+      primaryCorrect.addEventListener("click", () => resolveAuctionPrimary(true));
 
-    const primaryWrong = document.createElement("button");
-    primaryWrong.className = "secondary-btn";
-    primaryWrong.textContent = `${state.teams[state.auction.activeTeam]} Wrong`;
-    primaryWrong.addEventListener("click", () => resolveAuction(bet, false));
+      const primaryWrong = document.createElement("button");
+      primaryWrong.className = "secondary-btn";
+      primaryWrong.textContent = `${state.teams[state.auction.activeTeam]} Wrong`;
+      primaryWrong.addEventListener("click", () => resolveAuctionPrimary(false));
 
-    actions.append(primaryCorrect, primaryWrong);
+      const primaryNobody = document.createElement("button");
+      primaryNobody.className = "secondary-btn";
+      primaryNobody.textContent = "Nobody Got It";
+      primaryNobody.addEventListener("click", () => resolveAuctionPrimary(false));
+
+      actions.append(primaryCorrect, primaryWrong, primaryNobody);
+    } else if (state.auction.primaryResult === "wrong") {
+      const secondaryCorrect = document.createElement("button");
+      secondaryCorrect.className = "primary-btn";
+      secondaryCorrect.textContent = `${state.teams[state.auction.activeTeam === 0 ? 1 : 0]} Correct`;
+      secondaryCorrect.addEventListener("click", () => resolveAuctionSecondary(difficulty, true));
+
+      const secondaryWrong = document.createElement("button");
+      secondaryWrong.className = "secondary-btn";
+      secondaryWrong.textContent = "Nobody Got It";
+      secondaryWrong.addEventListener("click", () => resolveAuctionSecondary(difficulty, false));
+
+      actions.append(secondaryCorrect, secondaryWrong);
+    }
   }
   showModal(container);
 }
 
-function resolveAuction(bet, primaryCorrect) {
+function resolveAuctionPrimary(primaryCorrect) {
   const auction = state.auction;
   const primaryTeam = auction.activeTeam;
+  const bet = auction.currentBet;
   if (primaryCorrect) {
+    auction.primaryResult = "correct";
     state.scores[primaryTeam] += bet;
     closeModal();
     updateScoreboard();
     advanceAuctionRound();
-  } else {
-    state.scores[primaryTeam] -= Math.floor(bet / 2);
-    closeModal();
-    openAuctionSecondary(bet);
+    return;
   }
-}
-
-function openAuctionSecondary(bet) {
-  const { question, topic, difficulty } = state.auction.currentQuestion;
-  state.auction.secondaryRevealed = false;
-  startTimer(30, (remaining) => updateAuctionSecondaryModal(bet, question, topic, difficulty, remaining));
-  updateAuctionSecondaryModal(bet, question, topic, difficulty, 30);
+  auction.primaryResult = "wrong";
+  state.scores[primaryTeam] -= Math.floor(bet / 2);
+  updateScoreboard();
+  updateAuctionModal(bet, auction.currentQuestion.question, auction.currentQuestion.topic, auction.currentQuestion.difficulty, 0);
 }
 
 function updateAuctionSecondaryModal(bet, question, topic, difficulty, remaining) {
-  if (remaining === 0 && !state.auction.secondaryRevealed) {
+  if (remaining === 0 && state.auction.phase === "secondary") {
     clearTimers();
-    state.auction.secondaryRevealed = true;
-    updateAuctionSecondaryModal(bet, question, topic, difficulty, 0);
+    state.auction.phase = "reveal";
+    state.auction.answerRevealed = true;
+    updateAuctionModal(bet, question, topic, difficulty, 0);
     return;
   }
   const secondaryTeam = state.auction.activeTeam === 0 ? 1 : 0;
   const container = document.createElement("div");
   container.className = "question-card";
-  const answerMarkup = state.auction.secondaryRevealed ? `<div class="answer"><strong>Answer:</strong> ${question.answer}</div>` : "";
-  const teamMarkup = state.auction.secondaryRevealed
-    ? ""
-    : `<p style="text-align:center;">Secondary Team: <strong>${state.teams[secondaryTeam]}</strong></p>`;
+  const teamMarkup = `<p style="text-align:center;">Secondary Team: <strong>${state.teams[secondaryTeam]}</strong></p>`;
   container.innerHTML = `
     <span class="tag">${topic} • ${difficulty.toUpperCase()}</span>
     <h2>${question.question}</h2>
     <div class="timer">${remaining}s</div>
-    ${answerMarkup}
     ${teamMarkup}
     <div class="button-row" id="auctionSecondaryActions"></div>
   `;
 
   const actions = container.querySelector("#auctionSecondaryActions");
-  if (!state.auction.secondaryRevealed) {
-    const nextBtn = document.createElement("button");
-    nextBtn.className = "primary-btn";
-    nextBtn.textContent = "Next";
-    nextBtn.addEventListener("click", () => {
-      clearTimers();
-      state.auction.secondaryRevealed = true;
-      updateAuctionSecondaryModal(bet, question, topic, difficulty, 0);
-    });
-    actions.append(nextBtn);
-  } else {
-    const secondaryCorrect = document.createElement("button");
-    secondaryCorrect.className = "primary-btn";
-    secondaryCorrect.textContent = `${state.teams[secondaryTeam]} Correct`;
-    secondaryCorrect.addEventListener("click", () => resolveAuctionSecondary(difficulty, true));
-
-    const secondaryWrong = document.createElement("button");
-    secondaryWrong.className = "secondary-btn";
-    secondaryWrong.textContent = `${state.teams[secondaryTeam]} Wrong`;
-    secondaryWrong.addEventListener("click", () => resolveAuctionSecondary(difficulty, false));
-
-    actions.append(secondaryCorrect, secondaryWrong);
-  }
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "primary-btn";
+  nextBtn.textContent = "Next";
+  nextBtn.addEventListener("click", () => {
+    clearTimers();
+    state.auction.phase = "reveal";
+    state.auction.answerRevealed = true;
+    updateAuctionModal(bet, question, topic, difficulty, 0);
+  });
+  actions.append(nextBtn);
   showModal(container);
 }
 
 function resolveAuctionSecondary(difficulty, secondaryCorrect) {
+  state.auction.secondaryResult = secondaryCorrect ? "correct" : "wrong";
   const secondaryTeam = state.auction.activeTeam === 0 ? 1 : 0;
   if (secondaryCorrect) {
     const bonus = difficulty === "easy" ? 100 : difficulty === "medium" ? 200 : 300;
@@ -1251,9 +1264,13 @@ function renderEndGame() {
     </section>
   `;
 
-  document.getElementById("restartGame").addEventListener("click", renderStartScreen);
+  document.getElementById("restartGame").addEventListener("click", () => {
+    resetGameState();
+    renderStartScreen();
+  });
   document.getElementById("playSudden").addEventListener("click", () => {
     if (scoreA !== scoreB) {
+      resetGameState();
       renderStartScreen();
       return;
     }
@@ -1505,7 +1522,14 @@ function bindGlobalEvents() {
   });
 
   ELEMENTS.rulesBtn.addEventListener("click", renderRulesScreen);
-  ELEMENTS.backToStartBtn.addEventListener("click", renderStartScreen);
+  ELEMENTS.newGameBtn.addEventListener("click", () => {
+    resetGameState();
+    renderStartScreen();
+  });
+  ELEMENTS.backToStartBtn.addEventListener("click", () => {
+    resetGameState();
+    renderStartScreen();
+  });
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
@@ -1530,3 +1554,23 @@ loadQuestions().then(() => {
   updateScoreboard();
   renderStartScreen();
 });
+
+function resetGameState() {
+  clearTimers();
+  closeModal();
+  state.scores = [0, 0];
+  state.activeTeam = 0;
+  state.mode = null;
+  state.topics = [];
+  state.usedQuestions = new Set();
+  state.classic = null;
+  state.super = null;
+  state.risk = null;
+  state.auction = null;
+  state.suddenReveal = false;
+  if (state.data) {
+    buildQuestionIndex();
+  }
+  updateScoreboard();
+  updateIndicators();
+}

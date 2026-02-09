@@ -155,7 +155,7 @@ body {
 .button-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
   margin-top: 24px;
 }
@@ -163,11 +163,29 @@ body {
 .button-row > button {
   flex: 1 1 200px;
   min-width: 180px;
+  max-width: 320px;
+}
+
+.modal__content .button-row {
+  justify-content: center;
 }
 
 .modal__content .button-row > button {
   width: 100%;
   max-width: 320px;
+}
+
+.score-btn:disabled,
+.secondary-btn:disabled,
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.highlight-btn {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 16px rgba(53, 240, 255, 0.6);
 }
 
 .primary-btn,
