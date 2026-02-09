@@ -1,3 +1,4 @@
+const APP_VERSION = "1.5";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
@@ -128,6 +129,7 @@ const ELEMENTS = {
   rulesBtn: document.getElementById("rulesBtn"),
   newGameBtn: document.getElementById("newGameBtn"),
   backToStartBtn: document.getElementById("backToStartBtn"),
+  versionLabel: document.getElementById("versionLabel"),
 };
 
 const activeTimers = {
@@ -470,6 +472,8 @@ function checkEndGameClassic() {
 function initSuperMode() {
   state.super = {
     round: 1,
+    pickIndex: 0,
+    startingTeam: 0,
     bonusStack: 0,
     chain: 0,
     roundTopics: [],
@@ -477,6 +481,7 @@ function initSuperMode() {
     answered: new Set(),
     clutchUsed: false,
   };
+  setSuperStartingTeam();
   prepareSuperRound();
   renderSuperMode();
 }
@@ -484,9 +489,12 @@ function initSuperMode() {
 function prepareSuperRound() {
   const round = state.super.round;
   const difficulty = round <= 3 ? "easy" : round <= 6 ? "medium" : "hard";
-  state.super.roundTopics = [...state.topics];
+  state.super.roundTopics = shuffle([...state.topics]).slice(0, 4);
   state.super.roundQuestions = {};
   state.super.answered = new Set();
+  state.super.pickIndex = 0;
+  setSuperStartingTeam();
+  updateSuperActiveTeam();
   state.super.roundTopics.forEach((topic) => {
     const question = getRandomQuestion(topic, difficulty);
     state.super.roundQuestions[topic] = question;
@@ -496,6 +504,7 @@ function prepareSuperRound() {
 function renderSuperMode() {
   const round = state.super.round;
   const difficulty = round <= 3 ? "easy" : round <= 6 ? "medium" : "hard";
+  updateSuperActiveTeam();
   updateIndicators({ mode: MODE_LABELS.super, round: `Round ${round}/9`, difficulty });
   screenRoot.innerHTML = `
     <section class="panel">
@@ -525,6 +534,9 @@ function renderSuperMode() {
 }
 
 function openSuperQuestion(topic, difficulty) {
+  if (state.super.pickIndex >= 4 || state.super.answered.has(topic)) {
+    return;
+  }
   const question = state.super.roundQuestions[topic];
   if (!question) return;
   state.super.answerRevealed = false;
@@ -596,9 +608,10 @@ function resolveSuperQuestion(topic, winnerIndex) {
     state.super.chain += 50;
   }
   state.super.answered.add(topic);
+  state.super.pickIndex += 1;
+  updateSuperActiveTeam();
   closeModal();
-  updateScoreboard();
-  if (state.super.answered.size === state.super.roundTopics.length) {
+  if (state.super.pickIndex >= 4 || state.super.answered.size === state.super.roundTopics.length) {
     if (state.super.round === 4 && !state.super.clutchUsed) {
       const gap = Math.abs(state.scores[0] - state.scores[1]);
       if (gap >= 1000) {
@@ -876,14 +889,16 @@ function resolveRiskQuestion(winnerIndex) {
   tile.used = true;
 
   if (winnerIndex !== null) {
-    let awarded = risk.rerolled ? points / 2 : points;
+    let awarded = risk.rerolled && winnerIndex === state.activeTeam ? points / 2 : points;
     if (risk.randomBonus) awarded += 50;
-    if (winnerIndex !== state.activeTeam && risk.rerolled) {
-      awarded = points;
-    }
     state.scores[winnerIndex] += awarded;
-    risk.lastWin = { team: winnerIndex, points: awarded };
-    risk.doubleReady = true;
+    if (winnerIndex === state.activeTeam) {
+      risk.lastWin = { team: winnerIndex, points: awarded };
+      risk.doubleReady = true;
+    } else {
+      risk.lastWin = null;
+      risk.doubleReady = false;
+    }
   } else {
     risk.lastWin = null;
     risk.doubleReady = false;
@@ -994,12 +1009,13 @@ function resolveDouble(winnerIndex) {
   const tile = state.risk.doubleTile;
   tile.used = true;
   const lastWin = state.risk.lastWin;
+  const basePoints = CLASSIC_POINTS[tile.difficulty];
   if (winnerIndex === lastWin.team) {
-    state.scores[winnerIndex] += lastWin.points;
+    state.scores[winnerIndex] += basePoints * 2;
   } else {
     state.scores[lastWin.team] -= lastWin.points;
     if (winnerIndex !== null) {
-      state.scores[winnerIndex] += CLASSIC_POINTS[tile.difficulty];
+      state.scores[winnerIndex] += basePoints;
     }
   }
   state.risk.doubleReady = false;
@@ -1370,9 +1386,10 @@ function renderRulesScreen() {
         <div class="rule-block">
           <h3>Super Mode</h3>
           <ul>
-            <li>9 rounds. Each round has one question per topic.</li>
+            <li>9 rounds. Each round has 4 picks.</li>
             <li>Rounds 1-3 Easy, 4-6 Medium, 7-9 Hard.</li>
             <li>20 seconds per question, first correct wins.</li>
+            <li>Teams alternate picks, and the starting team alternates each round.</li>
             <li>Bonus stacks if nobody scores. Chain gives +50 for next correct answer.</li>
             <li>Clutch round between rounds 4 and 5 if score gap &gt;= 1000.</li>
           </ul>
@@ -1531,6 +1548,10 @@ function bindGlobalEvents() {
     renderStartScreen();
   });
 
+  if (ELEMENTS.versionLabel) {
+    ELEMENTS.versionLabel.textContent = `Version ${APP_VERSION}`;
+  }
+
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
       closeModal();
@@ -1573,4 +1594,14 @@ function resetGameState() {
   }
   updateScoreboard();
   updateIndicators();
+}
+
+function setSuperStartingTeam() {
+  state.super.startingTeam = state.super.round % 2 === 1 ? 0 : 1;
+}
+
+function updateSuperActiveTeam() {
+  if (!state.super) return;
+  state.activeTeam = (state.super.startingTeam + state.super.pickIndex) % 2;
+  updateScoreboard();
 }

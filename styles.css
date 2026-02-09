@@ -388,6 +388,15 @@ input[type="number"] {
   justify-content: center;
   gap: 16px;
   padding-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.version-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  align-self: center;
 }
 
 @media (max-width: 900px) {
