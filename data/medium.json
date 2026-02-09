@@ -1,0 +1,20 @@
+[
+  {"id":"med-history-1","topic":"History","question":"Which empire built Machu Picchu?","answer":"The Inca Empire"},
+  {"id":"med-history-2","topic":"History","question":"Who was the British Prime Minister during most of WWII?","answer":"Winston Churchill"},
+  {"id":"med-history-3","topic":"History","question":"The Renaissance began in which European country?","answer":"Italy"},
+  {"id":"med-science-1","topic":"Science","question":"What is the chemical symbol for gold?","answer":"Au"},
+  {"id":"med-science-2","topic":"Science","question":"Which part of the cell contains genetic material?","answer":"The nucleus"},
+  {"id":"med-science-3","topic":"Science","question":"What is the hardest natural substance on Earth?","answer":"Diamond"},
+  {"id":"med-pop-1","topic":"Pop Culture","question":"Which singer is known as the Queen of Pop?","answer":"Madonna"},
+  {"id":"med-pop-2","topic":"Pop Culture","question":"What fictional city is Batman associated with?","answer":"Gotham City"},
+  {"id":"med-pop-3","topic":"Pop Culture","question":"Which TV show features the character Walter White?","answer":"Breaking Bad"},
+  {"id":"med-sports-1","topic":"Sports","question":"How many players are on the field for one soccer team?","answer":"11"},
+  {"id":"med-sports-2","topic":"Sports","question":"Which country won the FIFA World Cup in 2018?","answer":"France"},
+  {"id":"med-sports-3","topic":"Sports","question":"Which sport uses the term \"grand slam\"?","answer":"Tennis"},
+  {"id":"med-geo-1","topic":"Geography","question":"What is the capital of Canada?","answer":"Ottawa"},
+  {"id":"med-geo-2","topic":"Geography","question":"Mount Kilimanjaro is in which country?","answer":"Tanzania"},
+  {"id":"med-geo-3","topic":"Geography","question":"Which U.S. state is known as the Sunshine State?","answer":"Florida"},
+  {"id":"med-tech-1","topic":"Technology","question":"Who is credited with inventing the World Wide Web?","answer":"Tim Berners-Lee"},
+  {"id":"med-tech-2","topic":"Technology","question":"What does GPU stand for?","answer":"Graphics Processing Unit"},
+  {"id":"med-tech-3","topic":"Technology","question":"What year did the first Android phone launch?","answer":"2008"}
+]

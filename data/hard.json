@@ -1,0 +1,20 @@
+[
+  {"id":"hard-history-1","topic":"History","question":"Which treaty ended World War I?","answer":"The Treaty of Versailles"},
+  {"id":"hard-history-2","topic":"History","question":"Who was the last emperor of Russia?","answer":"Nicholas II"},
+  {"id":"hard-history-3","topic":"History","question":"What year did the Spanish Armada sail against England?","answer":"1588"},
+  {"id":"hard-science-1","topic":"Science","question":"What is the powerhouse of the cell?","answer":"Mitochondria"},
+  {"id":"hard-science-2","topic":"Science","question":"Which element has the atomic number 92?","answer":"Uranium"},
+  {"id":"hard-science-3","topic":"Science","question":"What is the second law of thermodynamics about?","answer":"Entropy in an isolated system tends to increase"},
+  {"id":"hard-pop-1","topic":"Pop Culture","question":"Who directed the film 'Spirited Away'?","answer":"Hayao Miyazaki"},
+  {"id":"hard-pop-2","topic":"Pop Culture","question":"What year did the first iPhone release?","answer":"2007"},
+  {"id":"hard-pop-3","topic":"Pop Culture","question":"Which album features the song \"Billie Jean\"?","answer":"Thriller"},
+  {"id":"hard-sports-1","topic":"Sports","question":"Which boxer was known as \"The Greatest\"?","answer":"Muhammad Ali"},
+  {"id":"hard-sports-2","topic":"Sports","question":"Which country hosted the 2008 Summer Olympics?","answer":"China"},
+  {"id":"hard-sports-3","topic":"Sports","question":"In what year did Roger Federer win his first Wimbledon title?","answer":"2003"},
+  {"id":"hard-geo-1","topic":"Geography","question":"What is the capital of New Zealand?","answer":"Wellington"},
+  {"id":"hard-geo-2","topic":"Geography","question":"Which river runs through Baghdad?","answer":"The Tigris River"},
+  {"id":"hard-geo-3","topic":"Geography","question":"What is the tallest mountain in Africa?","answer":"Mount Kilimanjaro"},
+  {"id":"hard-tech-1","topic":"Technology","question":"What does HTTP stand for?","answer":"Hypertext Transfer Protocol"},
+  {"id":"hard-tech-2","topic":"Technology","question":"Which programming language was created by Bjarne Stroustrup?","answer":"C++"},
+  {"id":"hard-tech-3","topic":"Technology","question":"What does \"GPU\" stand for?","answer":"Graphics Processing Unit"}
+]
