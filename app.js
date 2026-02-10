@@ -1,4 +1,4 @@
-const APP_VERSION = "1.5";
+const APP_VERSION = "1.6";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
@@ -135,6 +135,12 @@ const ELEMENTS = {
 const activeTimers = {
   intervalId: null,
 };
+
+function renderAppVersion() {
+  if (ELEMENTS.versionLabel) {
+    ELEMENTS.versionLabel.textContent = `Version ${APP_VERSION}`;
+  }
+}
 
 function updateScoreboard() {
   teamANameEl.textContent = state.teams[0];
@@ -1548,9 +1554,7 @@ function bindGlobalEvents() {
     renderStartScreen();
   });
 
-  if (ELEMENTS.versionLabel) {
-    ELEMENTS.versionLabel.textContent = `Version ${APP_VERSION}`;
-  }
+  renderAppVersion();
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
@@ -1569,6 +1573,8 @@ function loadQuestions() {
     buildQuestionIndex();
   });
 }
+
+renderAppVersion();
 
 loadQuestions().then(() => {
   bindGlobalEvents();
