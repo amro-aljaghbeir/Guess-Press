@@ -1,4 +1,4 @@
-const APP_VERSION = "1.6";
+const APP_VERSION = "1.5";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
@@ -477,9 +477,13 @@ function checkEndGameClassic() {
 
 function initSuperMode() {
   state.super = {
-    round: 1,
-    pickIndex: 0,
-    startingTeam: 0,
+    // Explicit, testable Super turn-order state:
+    // - superRoundNumber: 1..9
+    // - superPickIndexWithinRound: 0..3
+    // Active picker is derived from these two fields.
+    superRoundNumber: 1,
+    superPickIndexWithinRound: 0,
+    superStartingTeamForRound: 0,
     bonusStack: 0,
     chain: 0,
     roundTopics: [],
@@ -493,12 +497,12 @@ function initSuperMode() {
 }
 
 function prepareSuperRound() {
-  const round = state.super.round;
+  const round = state.super.superRoundNumber;
   const difficulty = round <= 3 ? "easy" : round <= 6 ? "medium" : "hard";
   state.super.roundTopics = shuffle([...state.topics]).slice(0, 4);
   state.super.roundQuestions = {};
   state.super.answered = new Set();
-  state.super.pickIndex = 0;
+  state.super.superPickIndexWithinRound = 0;
   setSuperStartingTeam();
   updateSuperActiveTeam();
   state.super.roundTopics.forEach((topic) => {
@@ -508,7 +512,7 @@ function prepareSuperRound() {
 }
 
 function renderSuperMode() {
-  const round = state.super.round;
+  const round = state.super.superRoundNumber;
   const difficulty = round <= 3 ? "easy" : round <= 6 ? "medium" : "hard";
   updateSuperActiveTeam();
   updateIndicators({ mode: MODE_LABELS.super, round: `Round ${round}/9`, difficulty });
@@ -540,7 +544,7 @@ function renderSuperMode() {
 }
 
 function openSuperQuestion(topic, difficulty) {
-  if (state.super.pickIndex >= 4 || state.super.answered.has(topic)) {
+  if (state.super.superPickIndexWithinRound >= 4 || state.super.answered.has(topic)) {
     return;
   }
   const question = state.super.roundQuestions[topic];
@@ -601,7 +605,7 @@ function updateSuperModal(topic, question, difficulty, remaining) {
 }
 
 function resolveSuperQuestion(topic, winnerIndex) {
-  const round = state.super.round;
+  const round = state.super.superRoundNumber;
   const base = SUPER_BASE_POINTS[round - 1];
   const bonus = round <= 4 ? 50 : 100;
   if (winnerIndex === null) {
@@ -614,22 +618,22 @@ function resolveSuperQuestion(topic, winnerIndex) {
     state.super.chain += 50;
   }
   state.super.answered.add(topic);
-  state.super.pickIndex += 1;
+  state.super.superPickIndexWithinRound += 1;
   updateSuperActiveTeam();
   closeModal();
-  if (state.super.pickIndex >= 4 || state.super.answered.size === state.super.roundTopics.length) {
-    if (state.super.round === 4 && !state.super.clutchUsed) {
+  if (state.super.superPickIndexWithinRound >= 4 || state.super.answered.size === state.super.roundTopics.length) {
+    if (state.super.superRoundNumber === 4 && !state.super.clutchUsed) {
       const gap = Math.abs(state.scores[0] - state.scores[1]);
       if (gap >= 1000) {
         renderClutchOffer();
         return;
       }
     }
-    if (state.super.round === 9) {
+    if (state.super.superRoundNumber === 9) {
       renderEndGame();
       return;
     }
-    state.super.round += 1;
+    state.super.superRoundNumber += 1;
     prepareSuperRound();
   }
   renderSuperMode();
@@ -650,7 +654,7 @@ function renderClutchOffer() {
 
   document.getElementById("skipClutch").addEventListener("click", () => {
     state.super.clutchUsed = true;
-    state.super.round += 1;
+    state.super.superRoundNumber += 1;
     prepareSuperRound();
     renderSuperMode();
   });
@@ -724,7 +728,7 @@ function resolveClutch(winnerIndex) {
   }
   closeModal();
   updateScoreboard();
-  state.super.round += 1;
+  state.super.superRoundNumber += 1;
   prepareSuperRound();
   renderSuperMode();
 }
@@ -1603,11 +1607,15 @@ function resetGameState() {
 }
 
 function setSuperStartingTeam() {
-  state.super.startingTeam = state.super.round % 2 === 1 ? 0 : 1;
+  if (!state.super) return;
+  // Round 1 starts Team A, Round 2 starts Team B, then alternates every round.
+  state.super.superStartingTeamForRound = state.super.superRoundNumber % 2 === 1 ? 0 : 1;
 }
 
 function updateSuperActiveTeam() {
   if (!state.super) return;
-  state.activeTeam = (state.super.startingTeam + state.super.pickIndex) % 2;
+  // Within a round, picks alternate by parity:
+  // pick 0 starter, pick 1 other team, pick 2 starter, pick 3 other team.
+  state.activeTeam = (state.super.superStartingTeamForRound + state.super.superPickIndexWithinRound) % 2;
   updateScoreboard();
 }
