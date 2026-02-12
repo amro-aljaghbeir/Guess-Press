@@ -1,0 +1,1262 @@
+[
+  {
+    "id": "hard-uae-gcc-1",
+    "topic": "UAE & GCC",
+    "question": "Who was the first President of the UAE?",
+    "answer": "Sheikh Zayed bin Sultan Al Nahyan"
+  },
+  {
+    "id": "hard-uae-gcc-2",
+    "topic": "UAE & GCC",
+    "question": "Which emirate was the last to join the UAE federation?",
+    "answer": "Ras Al Khaimah"
+  },
+  {
+    "id": "hard-uae-gcc-3",
+    "topic": "UAE & GCC",
+    "question": "In what year did Ras Al Khaimah join the UAE?",
+    "answer": "1972"
+  },
+  {
+    "id": "hard-uae-gcc-4",
+    "topic": "UAE & GCC",
+    "question": "What is the name of Abu Dhabi’s sovereign wealth fund?",
+    "answer": "ADIA"
+  },
+  {
+    "id": "hard-uae-gcc-5",
+    "topic": "UAE & GCC",
+    "question": "Who announced the Mars 2117 project?",
+    "answer": "Sheikh Mohammed bin Rashid Al Maktoum"
+  },
+  {
+    "id": "hard-uae-gcc-6",
+    "topic": "UAE & GCC",
+    "question": "What is the UAE’s highest natural point?",
+    "answer": "Jebel Jais"
+  },
+  {
+    "id": "hard-uae-gcc-7",
+    "topic": "UAE & GCC",
+    "question": "What year did the UAE dirham become the official currency?",
+    "answer": "1973"
+  },
+  {
+    "id": "hard-uae-gcc-8",
+    "topic": "UAE & GCC",
+    "question": "Which emirate governs Dibba Al-Fujairah?",
+    "answer": "Fujairah"
+  },
+  {
+    "id": "hard-uae-gcc-9",
+    "topic": "UAE & GCC",
+    "question": "What is the UAE’s national anthem called?",
+    "answer": "Ishy Bilady"
+  },
+  {
+    "id": "hard-uae-gcc-10",
+    "topic": "UAE & GCC",
+    "question": "Which UAE city hosted COP28?",
+    "answer": "Dubai"
+  },
+  {
+    "id": "hard-uae-gcc-11",
+    "topic": "UAE & GCC",
+    "question": "What federal body oversees UAE space missions?",
+    "answer": "Mohammed bin Rashid Space Centre"
+  },
+  {
+    "id": "hard-uae-gcc-12",
+    "topic": "UAE & GCC",
+    "question": "Which emirate contains Al Jazirah Al Hamra village?",
+    "answer": "Ras Al Khaimah"
+  },
+  {
+    "id": "hard-uae-gcc-13",
+    "topic": "UAE & GCC",
+    "question": "What was the UAE’s first oil-exporting emirate?",
+    "answer": "Abu Dhabi"
+  },
+  {
+    "id": "hard-uae-gcc-14",
+    "topic": "UAE & GCC",
+    "question": "What is the UAE’s main federal judicial authority?",
+    "answer": "Federal Supreme Court"
+  },
+  {
+    "id": "hard-uae-gcc-15",
+    "topic": "UAE & GCC",
+    "question": "Which emirate hosts the Hatta Dam?",
+    "answer": "Dubai"
+  },
+  {
+    "id": "hard-uae-gcc-16",
+    "topic": "UAE & GCC",
+    "question": "What year was the Federal National Council first formed?",
+    "answer": "1972"
+  },
+  {
+    "id": "hard-uae-gcc-17",
+    "topic": "UAE & GCC",
+    "question": "Which UAE city is home to Masdar City?",
+    "answer": "Abu Dhabi"
+  },
+  {
+    "id": "hard-uae-gcc-18",
+    "topic": "UAE & GCC",
+    "question": "What UAE initiative focuses on renewable energy research?",
+    "answer": "Masdar Initiative"
+  },
+  {
+    "id": "hard-uae-gcc-19",
+    "topic": "UAE & GCC",
+    "question": "Which emirate hosts Manarat Al Saadiyat?",
+    "answer": "Abu Dhabi"
+  },
+  {
+    "id": "hard-uae-gcc-20",
+    "topic": "UAE & GCC",
+    "question": "What was the UAE known for economically before oil?",
+    "answer": "Pearl diving"
+  },
+  {
+    "id": "hard-uae-gcc-21",
+    "topic": "UAE & GCC",
+    "question": "Which emirate has territory on the Gulf of Oman?",
+    "answer": "Fujairah"
+  },
+  {
+    "id": "hard-uae-gcc-22",
+    "topic": "UAE & GCC",
+    "question": "Who was the UAE’s first female minister?",
+    "answer": "Sheikha Lubna Al Qasimi"
+  },
+  {
+    "id": "hard-uae-gcc-23",
+    "topic": "UAE & GCC",
+    "question": "Which UAE leader introduced Vision 2021?",
+    "answer": "Sheikh Khalifa bin Zayed Al Nahyan"
+  },
+  {
+    "id": "hard-uae-gcc-24",
+    "topic": "UAE & GCC",
+    "question": "What is the name of the UAE’s federal advisory council elections?",
+    "answer": "FNC Elections"
+  },
+  {
+    "id": "hard-uae-gcc-25",
+    "topic": "UAE & GCC",
+    "question": "Which emirate is home to Al Bidya Mosque?",
+    "answer": "Fujairah"
+  },
+  {
+    "id": "hard-uae-gcc-26",
+    "topic": "UAE & GCC",
+    "question": "What is the UAE’s largest man-made port?",
+    "answer": "Jebel Ali Port"
+  },
+  {
+    "id": "hard-uae-gcc-27",
+    "topic": "UAE & GCC",
+    "question": "Which UAE city is known as the “Garden City”?",
+    "answer": "Al Ain"
+  },
+  {
+    "id": "hard-uae-gcc-28",
+    "topic": "UAE & GCC",
+    "question": "Which emirate hosts Al Ain Zoo?",
+    "answer": "Abu Dhabi"
+  },
+  {
+    "id": "hard-uae-gcc-29",
+    "topic": "UAE & GCC",
+    "question": "What UAE project focuses on future human settlement on Mars?",
+    "answer": "Mars 2117"
+  },
+  {
+    "id": "hard-uae-gcc-30",
+    "topic": "UAE & GCC",
+    "question": "Which emirate has the longest coastline?",
+    "answer": "Abu Dhabi"
+  },
+  {
+    "id": "hard-general-knowledge-31",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What year did the Berlin Wall fall?",
+    "answer": "1989"
+  },
+  {
+    "id": "hard-general-knowledge-32",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which scientist developed the theory of relativity?",
+    "answer": "Albert Einstein"
+  },
+  {
+    "id": "hard-general-knowledge-33",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the capital of Kazakhstan?",
+    "answer": "Astana"
+  },
+  {
+    "id": "hard-general-knowledge-34",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which country has the most volcanoes?",
+    "answer": "Indonesia"
+  },
+  {
+    "id": "hard-general-knowledge-35",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the longest bone in the human body?",
+    "answer": "Femur"
+  },
+  {
+    "id": "hard-general-knowledge-36",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which element has the symbol “K”?",
+    "answer": "Potassium"
+  },
+  {
+    "id": "hard-general-knowledge-37",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the largest desert in the world overall?",
+    "answer": "Antarctica"
+  },
+  {
+    "id": "hard-general-knowledge-38",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Who was the first person to walk on the Moon?",
+    "answer": "Neil Armstrong"
+  },
+  {
+    "id": "hard-general-knowledge-39",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What does NATO stand for?",
+    "answer": "North Atlantic Treaty Organization"
+  },
+  {
+    "id": "hard-general-knowledge-40",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which planet rotates on its side?",
+    "answer": "Uranus"
+  },
+  {
+    "id": "hard-general-knowledge-41",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What year was the United Nations founded?",
+    "answer": "1945"
+  },
+  {
+    "id": "hard-general-knowledge-42",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which country has the highest life expectancy?",
+    "answer": "Japan"
+  },
+  {
+    "id": "hard-general-knowledge-43",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the capital of Sri Lanka?",
+    "answer": "Sri Jayawardenepura Kotte"
+  },
+  {
+    "id": "hard-general-knowledge-44",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which blood cells fight infection?",
+    "answer": "White blood cells"
+  },
+  {
+    "id": "hard-general-knowledge-45",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the speed of light approximately (km/s)?",
+    "answer": "300,000"
+  },
+  {
+    "id": "hard-general-knowledge-46",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which mathematician is known as the father of geometry?",
+    "answer": "Euclid"
+  },
+  {
+    "id": "hard-general-knowledge-47",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the chemical formula for table salt?",
+    "answer": "NaCl"
+  },
+  {
+    "id": "hard-general-knowledge-48",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which ocean current warms Western Europe?",
+    "answer": "Gulf Stream"
+  },
+  {
+    "id": "hard-general-knowledge-49",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What does “IQ” stand for?",
+    "answer": "Intelligence Quotient"
+  },
+  {
+    "id": "hard-general-knowledge-50",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which country was formerly known as Persia?",
+    "answer": "Iran"
+  },
+  {
+    "id": "hard-general-knowledge-51",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What organ connects the stomach to the large intestine?",
+    "answer": "Small intestine"
+  },
+  {
+    "id": "hard-general-knowledge-52",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What year did the internet become publicly available?",
+    "answer": "1991"
+  },
+  {
+    "id": "hard-general-knowledge-53",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which country has the most UNESCO World Heritage sites?",
+    "answer": "Italy"
+  },
+  {
+    "id": "hard-general-knowledge-54",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the capital of Bolivia?",
+    "answer": "Sucre"
+  },
+  {
+    "id": "hard-general-knowledge-55",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What part of the eye controls light intake?",
+    "answer": "Iris"
+  },
+  {
+    "id": "hard-general-knowledge-56",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which gas is primarily responsible for the greenhouse effect?",
+    "answer": "Carbon dioxide"
+  },
+  {
+    "id": "hard-general-knowledge-57",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the study of earthquakes called?",
+    "answer": "Seismology"
+  },
+  {
+    "id": "hard-general-knowledge-58",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Which metal has the highest electrical conductivity?",
+    "answer": "Silver"
+  },
+  {
+    "id": "hard-general-knowledge-59",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "Who discovered penicillin?",
+    "answer": "Alexander Fleming"
+  },
+  {
+    "id": "hard-general-knowledge-60",
+    "topic": "GENERAL KNOWLEDGE",
+    "question": "What is the deepest point in Earth’s oceans?",
+    "answer": "Mariana Trench"
+  },
+  {
+    "id": "hard-history-61",
+    "topic": "HISTORY",
+    "question": "What event officially started World War II in Europe?",
+    "answer": "Invasion of Poland"
+  },
+  {
+    "id": "hard-history-62",
+    "topic": "HISTORY",
+    "question": "Which famous wall symbolized the Cold War divide?",
+    "answer": "Berlin Wall"
+  },
+  {
+    "id": "hard-history-63",
+    "topic": "HISTORY",
+    "question": "Which empire ruled much of the Middle East before World War I?",
+    "answer": "Ottoman Empire"
+  },
+  {
+    "id": "hard-history-64",
+    "topic": "HISTORY",
+    "question": "What global conflict introduced nuclear weapons?",
+    "answer": "World War II"
+  },
+  {
+    "id": "hard-history-65",
+    "topic": "HISTORY",
+    "question": "Which ancient city was destroyed by a volcanic eruption?",
+    "answer": "Pompeii"
+  },
+  {
+    "id": "hard-history-66",
+    "topic": "HISTORY",
+    "question": "What major event caused the United States to enter World War II?",
+    "answer": "Attack on Pearl Harbor"
+  },
+  {
+    "id": "hard-history-67",
+    "topic": "HISTORY",
+    "question": "Which country was divided into East and West after World War II?",
+    "answer": "Germany"
+  },
+  {
+    "id": "hard-history-68",
+    "topic": "HISTORY",
+    "question": "What agreement ended World War I?",
+    "answer": "Treaty of Versailles"
+  },
+  {
+    "id": "hard-history-69",
+    "topic": "HISTORY",
+    "question": "Which empire built the Colosseum and ruled much of Europe?",
+    "answer": "Roman Empire"
+  },
+  {
+    "id": "hard-history-70",
+    "topic": "HISTORY",
+    "question": "What war followed Iraq’s invasion of Kuwait?",
+    "answer": "Gulf War"
+  },
+  {
+    "id": "hard-history-71",
+    "topic": "HISTORY",
+    "question": "Which global rivalry followed World War II without direct fighting?",
+    "answer": "Cold War"
+  },
+  {
+    "id": "hard-history-72",
+    "topic": "HISTORY",
+    "question": "Which ancient civilization built the pyramids?",
+    "answer": "Ancient Egyptians"
+  },
+  {
+    "id": "hard-history-73",
+    "topic": "HISTORY",
+    "question": "What city fell in 1453, ending the Byzantine Empire?",
+    "answer": "Constantinople"
+  },
+  {
+    "id": "hard-history-74",
+    "topic": "HISTORY",
+    "question": "Which country was formerly known as Persia?",
+    "answer": "Iran"
+  },
+  {
+    "id": "hard-history-75",
+    "topic": "HISTORY",
+    "question": "What global organization was created after World War II to prevent wars?",
+    "answer": "United Nations"
+  },
+  {
+    "id": "hard-history-76",
+    "topic": "HISTORY",
+    "question": "Which war was fought between Iran and Iraq in the 1980s?",
+    "answer": "Iran-Iraq War"
+  },
+  {
+    "id": "hard-history-77",
+    "topic": "HISTORY",
+    "question": "What year did humans first land on the Moon?",
+    "answer": "1969"
+  },
+  {
+    "id": "hard-history-78",
+    "topic": "HISTORY",
+    "question": "Which empire controlled Mecca and Medina before WWI?",
+    "answer": "Ottoman Empire"
+  },
+  {
+    "id": "hard-history-79",
+    "topic": "HISTORY",
+    "question": "What major political movement swept Arab countries around 2010?",
+    "answer": "Arab Spring"
+  },
+  {
+    "id": "hard-history-80",
+    "topic": "HISTORY",
+    "question": "Which ancient trade route connected Asia to Europe?",
+    "answer": "Silk Road"
+  },
+  {
+    "id": "hard-history-81",
+    "topic": "HISTORY",
+    "question": "What global event caused massive unemployment in the 1930s?",
+    "answer": "Great Depression"
+  },
+  {
+    "id": "hard-history-82",
+    "topic": "HISTORY",
+    "question": "Which empire was famous for gladiator fights?",
+    "answer": "Roman Empire"
+  },
+  {
+    "id": "hard-history-83",
+    "topic": "HISTORY",
+    "question": "What wall’s fall symbolized the end of the Cold War?",
+    "answer": "Berlin Wall"
+  },
+  {
+    "id": "hard-history-84",
+    "topic": "HISTORY",
+    "question": "Which ancient civilization invented paper?",
+    "answer": "China"
+  },
+  {
+    "id": "hard-history-85",
+    "topic": "HISTORY",
+    "question": "Which conflict divided Korea into North and South?",
+    "answer": "Korean War"
+  },
+  {
+    "id": "hard-history-86",
+    "topic": "HISTORY",
+    "question": "Which empire ruled Spain before 1500?",
+    "answer": "Umayyad Caliphate"
+  },
+  {
+    "id": "hard-history-87",
+    "topic": "HISTORY",
+    "question": "What war caused oil prices to spike globally in the 1970s?",
+    "answer": "Yom Kippur War"
+  },
+  {
+    "id": "hard-history-88",
+    "topic": "HISTORY",
+    "question": "Which ancient city is one of the oldest continuously inhabited cities?",
+    "answer": "Damascus"
+  },
+  {
+    "id": "hard-history-89",
+    "topic": "HISTORY",
+    "question": "What empire controlled much of North Africa before European colonization?",
+    "answer": "Ottoman Empire"
+  },
+  {
+    "id": "hard-history-90",
+    "topic": "HISTORY",
+    "question": "What event ended the Cold War era symbolically?",
+    "answer": "Fall of the Berlin Wall"
+  },
+  {
+    "id": "hard-movies-91",
+    "topic": "MOVIES",
+    "question": "Which movie features the quote “Why so serious?”",
+    "answer": "The Dark Knight"
+  },
+  {
+    "id": "hard-movies-92",
+    "topic": "MOVIES",
+    "question": "Which movie franchise has exactly 9 main saga films?",
+    "answer": "Star Wars"
+  },
+  {
+    "id": "hard-movies-93",
+    "topic": "MOVIES",
+    "question": "Which movie features a rotating hallway fight scene filmed practically?",
+    "answer": "Inception"
+  },
+  {
+    "id": "hard-movies-94",
+    "topic": "MOVIES",
+    "question": "Which movie has the longest runtime to win Best Picture?",
+    "answer": "The Lord of the Rings The Return of the King"
+  },
+  {
+    "id": "hard-movies-95",
+    "topic": "MOVIES",
+    "question": "Which movie features a single continuous-looking take in war scenes?",
+    "answer": "1917"
+  },
+  {
+    "id": "hard-movies-96",
+    "topic": "MOVIES",
+    "question": "Which movie features a driver who never speaks much and wears a jacket with a scorpion?",
+    "answer": "Drive"
+  },
+  {
+    "id": "hard-movies-97",
+    "topic": "MOVIES",
+    "question": "Which movie ends with the main character realizing he was dead the whole time?",
+    "answer": "The Sixth Sense"
+  },
+  {
+    "id": "hard-movies-98",
+    "topic": "MOVIES",
+    "question": "Which movie features a parasite living inside a host family?",
+    "answer": "Parasite"
+  },
+  {
+    "id": "hard-movies-99",
+    "topic": "MOVIES",
+    "question": "Which movie features a guy stuck in a coffin underground?",
+    "answer": "Buried"
+  },
+  {
+    "id": "hard-movies-100",
+    "topic": "MOVIES",
+    "question": "Which movie features a character named Tyler Durden?",
+    "answer": "Fight Club"
+  },
+  {
+    "id": "hard-movies-101",
+    "topic": "MOVIES",
+    "question": "Which movie features an elevator fight in a Captain America suit?",
+    "answer": "Captain America The Winter Soldier"
+  },
+  {
+    "id": "hard-movies-102",
+    "topic": "MOVIES",
+    "question": "Which movie features a countdown timer tattooed on the character’s body?",
+    "answer": "Memento"
+  },
+  {
+    "id": "hard-movies-103",
+    "topic": "MOVIES",
+    "question": "Which movie features a group surviving in a desert with a war rig?",
+    "answer": "Mad Max Fury Road"
+  },
+  {
+    "id": "hard-movies-104",
+    "topic": "MOVIES",
+    "question": "Which movie features a lighthouse driving two men insane?",
+    "answer": "The Lighthouse"
+  },
+  {
+    "id": "hard-movies-105",
+    "topic": "MOVIES",
+    "question": "Which movie features a girl who disappears on her anniversary?",
+    "answer": "Gone Girl"
+  },
+  {
+    "id": "hard-movies-106",
+    "topic": "MOVIES",
+    "question": "Which movie features a man trapped in an airport?",
+    "answer": "The Terminal"
+  },
+  {
+    "id": "hard-movies-107",
+    "topic": "MOVIES",
+    "question": "Which movie features an alien creature bursting from a chest?",
+    "answer": "Alien"
+  },
+  {
+    "id": "hard-movies-108",
+    "topic": "MOVIES",
+    "question": "Which movie features a world where people don’t age past 25?",
+    "answer": "In Time"
+  },
+  {
+    "id": "hard-movies-109",
+    "topic": "MOVIES",
+    "question": "Which movie features a book that predicts crimes before they happen?",
+    "answer": "Minority Report"
+  },
+  {
+    "id": "hard-movies-110",
+    "topic": "MOVIES",
+    "question": "Which movie features a man who relives the same battle repeatedly?",
+    "answer": "Edge of Tomorrow"
+  },
+  {
+    "id": "hard-movies-111",
+    "topic": "MOVIES",
+    "question": "Which movie features a silent hitman with a coin-based economy?",
+    "answer": "John Wick"
+  },
+  {
+    "id": "hard-movies-112",
+    "topic": "MOVIES",
+    "question": "Which movie features a group stuck in a cube-shaped trap?",
+    "answer": "Cube"
+  },
+  {
+    "id": "hard-movies-113",
+    "topic": "MOVIES",
+    "question": "Which movie features a pianist surviving the Holocaust?",
+    "answer": "The Pianist"
+  },
+  {
+    "id": "hard-movies-114",
+    "topic": "MOVIES",
+    "question": "Which movie features a dream collapsing city scene?",
+    "answer": "Inception"
+  },
+  {
+    "id": "hard-movies-115",
+    "topic": "MOVIES",
+    "question": "Which movie features a man talking to a volleyball?",
+    "answer": "Cast Away"
+  },
+  {
+    "id": "hard-movies-116",
+    "topic": "MOVIES",
+    "question": "Which movie features an AI named HAL?",
+    "answer": "2001 A Space Odyssey"
+  },
+  {
+    "id": "hard-movies-117",
+    "topic": "MOVIES",
+    "question": "Which movie features a guy waking up with no memory and tattoos?",
+    "answer": "Memento"
+  },
+  {
+    "id": "hard-movies-118",
+    "topic": "MOVIES",
+    "question": "Which movie features a heist inside a mind?",
+    "answer": "Inception"
+  },
+  {
+    "id": "hard-movies-119",
+    "topic": "MOVIES",
+    "question": "Which movie features a hotel with shifting hallways?",
+    "answer": "The Shining"
+  },
+  {
+    "id": "hard-movies-120",
+    "topic": "MOVIES",
+    "question": "Which movie features a villain who believes balance is justice?",
+    "answer": "Avengers Infinity War"
+  },
+  {
+    "id": "hard-netflix-shows-121",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series is set in the fictional town of Winden?",
+    "answer": "Dark"
+  },
+  {
+    "id": "hard-netflix-shows-122",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a priest battling faith and miracles?",
+    "answer": "Midnight Mass"
+  },
+  {
+    "id": "hard-netflix-shows-123",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows a morally grey funeral home family?",
+    "answer": "Six Feet Under"
+  },
+  {
+    "id": "hard-netflix-shows-124",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a mirror that rates people socially?",
+    "answer": "Black Mirror"
+  },
+  {
+    "id": "hard-netflix-shows-125",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series focuses on the psychology of serial killers?",
+    "answer": "Mindhunter"
+  },
+  {
+    "id": "hard-netflix-shows-126",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a time loop tied to trauma and death?",
+    "answer": "Russian Doll"
+  },
+  {
+    "id": "hard-netflix-shows-127",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series features children with superpowers raised in isolation?",
+    "answer": "The Umbrella Academy"
+  },
+  {
+    "id": "hard-netflix-shows-128",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show is about a cult that believes the apocalypse is coming?",
+    "answer": "The Leftovers"
+  },
+  {
+    "id": "hard-netflix-shows-129",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series explores grief through a haunted house?",
+    "answer": "The Haunting of Hill House"
+  },
+  {
+    "id": "hard-netflix-shows-130",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a dystopian prison inside a vertical tower?",
+    "answer": "The Platform"
+  },
+  {
+    "id": "hard-netflix-shows-131",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series features a morally corrupt tech billionaire?",
+    "answer": "Black Mirror"
+  },
+  {
+    "id": "hard-netflix-shows-132",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a lawyer who is blind but hyper-aware?",
+    "answer": "Daredevil"
+  },
+  {
+    "id": "hard-netflix-shows-133",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows a woman rebuilding her identity after prison?",
+    "answer": "Orange Is the New Black"
+  },
+  {
+    "id": "hard-netflix-shows-134",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features characters existing across three timelines?",
+    "answer": "Dark"
+  },
+  {
+    "id": "hard-netflix-shows-135",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series explores fame through an animated horse?",
+    "answer": "BoJack Horseman"
+  },
+  {
+    "id": "hard-netflix-shows-136",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show follows a man laundering money for a cartel?",
+    "answer": "Ozark"
+  },
+  {
+    "id": "hard-netflix-shows-137",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows survivors after a virus wipes out most of humanity?",
+    "answer": "The Stand"
+  },
+  {
+    "id": "hard-netflix-shows-138",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a woman who can’t distinguish reality from delusion?",
+    "answer": "Maniac"
+  },
+  {
+    "id": "hard-netflix-shows-139",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series is about a rich family losing everything?",
+    "answer": "Arrested Development"
+  },
+  {
+    "id": "hard-netflix-shows-140",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features an AI-controlled society experiment?",
+    "answer": "Black Mirror"
+  },
+  {
+    "id": "hard-netflix-shows-141",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows a woman impersonating a German heiress?",
+    "answer": "Inventing Anna"
+  },
+  {
+    "id": "hard-netflix-shows-142",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show is about memory, loss, and identity in a digital future?",
+    "answer": "Altered Carbon"
+  },
+  {
+    "id": "hard-netflix-shows-143",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series explores mental health through surreal visuals?",
+    "answer": "Maniac"
+  },
+  {
+    "id": "hard-netflix-shows-144",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a masked rebellion symbol?",
+    "answer": "Money Heist"
+  },
+  {
+    "id": "hard-netflix-shows-145",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows teenagers dealing with suicide aftermath?",
+    "answer": "13 Reasons Why"
+  },
+  {
+    "id": "hard-netflix-shows-146",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a cult-like island community?",
+    "answer": "Midnight Mass"
+  },
+  {
+    "id": "hard-netflix-shows-147",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series blends animation with adult existential themes?",
+    "answer": "BoJack Horseman"
+  },
+  {
+    "id": "hard-netflix-shows-148",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show is about humanity losing the ability to see?",
+    "answer": "See"
+  },
+  {
+    "id": "hard-netflix-shows-149",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which Netflix series follows assassins bound by rules?",
+    "answer": "The Night Agent"
+  },
+  {
+    "id": "hard-netflix-shows-150",
+    "topic": "NETFLIX SHOWS",
+    "question": "Which show features a final game determining life or death for money?",
+    "answer": "Squid Game"
+  },
+  {
+    "id": "hard-dc-151",
+    "topic": "DC",
+    "question": "What is the name of Batman’s darkest multiverse counterpart?",
+    "answer": "The Batman Who Laughs"
+  },
+  {
+    "id": "hard-dc-152",
+    "topic": "DC",
+    "question": "Which DC event collapsed and rebuilt the multiverse multiple times?",
+    "answer": "Crisis events"
+  },
+  {
+    "id": "hard-dc-153",
+    "topic": "DC",
+    "question": "What equation allows control over all life in DC lore?",
+    "answer": "Anti-Life Equation"
+  },
+  {
+    "id": "hard-dc-154",
+    "topic": "DC",
+    "question": "Which Green Lantern became a White Lantern?",
+    "answer": "Kyle Rayner"
+  },
+  {
+    "id": "hard-dc-155",
+    "topic": "DC",
+    "question": "Which DC villain killed Superman in his first comic death?",
+    "answer": "Doomsday"
+  },
+  {
+    "id": "hard-dc-156",
+    "topic": "DC",
+    "question": "What event introduced the concept of Hypertime?",
+    "answer": "Zero Hour"
+  },
+  {
+    "id": "hard-dc-157",
+    "topic": "DC",
+    "question": "Which DC hero exists outside the normal flow of time?",
+    "answer": "Doctor Manhattan"
+  },
+  {
+    "id": "hard-dc-158",
+    "topic": "DC",
+    "question": "Which Batman storyline focuses on breaking him mentally and physically?",
+    "answer": "Knightfall"
+  },
+  {
+    "id": "hard-dc-159",
+    "topic": "DC",
+    "question": "Which villain is responsible for paralyzing Barbara Gordon?",
+    "answer": "Joker"
+  },
+  {
+    "id": "hard-dc-160",
+    "topic": "DC",
+    "question": "Which DC hero was once part of the Watchmen universe crossover?",
+    "answer": "Doctor Manhattan"
+  },
+  {
+    "id": "hard-dc-161",
+    "topic": "DC",
+    "question": "Which DC event merged Watchmen with the main universe?",
+    "answer": "Doomsday Clock"
+  },
+  {
+    "id": "hard-dc-162",
+    "topic": "DC",
+    "question": "Which villain commands Parademons?",
+    "answer": "Darkseid"
+  },
+  {
+    "id": "hard-dc-163",
+    "topic": "DC",
+    "question": "Which DC hero can rewrite reality by running fast enough?",
+    "answer": "The Flash"
+  },
+  {
+    "id": "hard-dc-164",
+    "topic": "DC",
+    "question": "Which storyline explores evil Batmen from the Dark Multiverse?",
+    "answer": "Dark Nights Metal"
+  },
+  {
+    "id": "hard-dc-165",
+    "topic": "DC",
+    "question": "Which DC villain manipulates time through the Speed Force?",
+    "answer": "Zoom"
+  },
+  {
+    "id": "hard-dc-166",
+    "topic": "DC",
+    "question": "Which hero replaced Superman after his death temporarily?",
+    "answer": "Steel"
+  },
+  {
+    "id": "hard-dc-167",
+    "topic": "DC",
+    "question": "Which DC cosmic entity represents life itself?",
+    "answer": "The White Light"
+  },
+  {
+    "id": "hard-dc-168",
+    "topic": "DC",
+    "question": "Which Lantern Corps is powered by rage?",
+    "answer": "Red Lantern Corps"
+  },
+  {
+    "id": "hard-dc-169",
+    "topic": "DC",
+    "question": "Which villain is obsessed with proving Batman is no different from him?",
+    "answer": "Joker"
+  },
+  {
+    "id": "hard-dc-170",
+    "topic": "DC",
+    "question": "Which DC event erased the Justice League from existence temporarily?",
+    "answer": "Final Crisis"
+  },
+  {
+    "id": "hard-dc-171",
+    "topic": "DC",
+    "question": "Which hero rules Apokolips after Darkseid in some timelines?",
+    "answer": "Orion"
+  },
+  {
+    "id": "hard-dc-172",
+    "topic": "DC",
+    "question": "Which DC storyline reveals Batman’s secret files on the Justice League?",
+    "answer": "Tower of Babel"
+  },
+  {
+    "id": "hard-dc-173",
+    "topic": "DC",
+    "question": "Which villain created the Amazo android?",
+    "answer": "Professor Ivo"
+  },
+  {
+    "id": "hard-dc-174",
+    "topic": "DC",
+    "question": "Which DC character is known as the embodiment of death?",
+    "answer": "Death of the Endless"
+  },
+  {
+    "id": "hard-dc-175",
+    "topic": "DC",
+    "question": "Which DC hero became the Spectre?",
+    "answer": "Jim Corrigan"
+  },
+  {
+    "id": "hard-dc-176",
+    "topic": "DC",
+    "question": "Which villain is the physical embodiment of fear in DC?",
+    "answer": "Parallax"
+  },
+  {
+    "id": "hard-dc-177",
+    "topic": "DC",
+    "question": "Which DC storyline explores Superman raised by different families?",
+    "answer": "Red Son"
+  },
+  {
+    "id": "hard-dc-178",
+    "topic": "DC",
+    "question": "Which hero has the power of the Emotional Spectrum mastery?",
+    "answer": "White Lantern"
+  },
+  {
+    "id": "hard-dc-179",
+    "topic": "DC",
+    "question": "Which DC villain can rewrite reality by speaking backwards?",
+    "answer": "Mr Mxyzptlk"
+  },
+  {
+    "id": "hard-dc-180",
+    "topic": "DC",
+    "question": "Which DC event reset continuity after Flash altered time?",
+    "answer": "Flashpoint"
+  },
+  {
+    "id": "hard-marvel-181",
+    "topic": "MARVEL",
+    "question": "What Marvel event split the Avengers over ideology?",
+    "answer": "Civil War"
+  },
+  {
+    "id": "hard-marvel-182",
+    "topic": "MARVEL",
+    "question": "Which Marvel character becomes worthy of Mjolnir after Thor?",
+    "answer": "Jane Foster"
+  },
+  {
+    "id": "hard-marvel-183",
+    "topic": "MARVEL",
+    "question": "What is the name of the multiversal war hinted in Loki?",
+    "answer": "Multiversal War"
+  },
+  {
+    "id": "hard-marvel-184",
+    "topic": "MARVEL",
+    "question": "Which Marvel entity represents death itself?",
+    "answer": "Death"
+  },
+  {
+    "id": "hard-marvel-185",
+    "topic": "MARVEL",
+    "question": "What artifact allows Kang to control timelines?",
+    "answer": "Time Chair"
+  },
+  {
+    "id": "hard-marvel-186",
+    "topic": "MARVEL",
+    "question": "Which Marvel storyline features an evil Doctor Strange variant?",
+    "answer": "What If"
+  },
+  {
+    "id": "hard-marvel-187",
+    "topic": "MARVEL",
+    "question": "Which Marvel hero erased mutants from existence in one storyline?",
+    "answer": "Scarlet Witch"
+  },
+  {
+    "id": "hard-marvel-188",
+    "topic": "MARVEL",
+    "question": "Which cosmic being judges planets by weighing their hearts?",
+    "answer": "Celestials"
+  },
+  {
+    "id": "hard-marvel-189",
+    "topic": "MARVEL",
+    "question": "What is the name of the symbiote planet?",
+    "answer": "Klyntar"
+  },
+  {
+    "id": "hard-marvel-190",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain created the Sentinels?",
+    "answer": "Bolivar Trask"
+  },
+  {
+    "id": "hard-marvel-191",
+    "topic": "MARVEL",
+    "question": "Which Marvel character is bonded to the Venom symbiote originally?",
+    "answer": "Eddie Brock"
+  },
+  {
+    "id": "hard-marvel-192",
+    "topic": "MARVEL",
+    "question": "What event introduced the Marvel multiverse officially?",
+    "answer": "Secret Wars"
+  },
+  {
+    "id": "hard-marvel-193",
+    "topic": "MARVEL",
+    "question": "Which Marvel hero becomes Ghost Rider by making a deal?",
+    "answer": "Johnny Blaze"
+  },
+  {
+    "id": "hard-marvel-194",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain seeks the Infinity Stones across realities?",
+    "answer": "Thanos"
+  },
+  {
+    "id": "hard-marvel-195",
+    "topic": "MARVEL",
+    "question": "Which Marvel artifact can rewrite reality?",
+    "answer": "Reality Stone"
+  },
+  {
+    "id": "hard-marvel-196",
+    "topic": "MARVEL",
+    "question": "Which Marvel character exists outside normal reality and breaks the fourth wall?",
+    "answer": "Deadpool"
+  },
+  {
+    "id": "hard-marvel-197",
+    "topic": "MARVEL",
+    "question": "Which Marvel race created the Eternals?",
+    "answer": "Celestials"
+  },
+  {
+    "id": "hard-marvel-198",
+    "topic": "MARVEL",
+    "question": "Which storyline shows a zombie version of the Marvel universe?",
+    "answer": "Marvel Zombies"
+  },
+  {
+    "id": "hard-marvel-199",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain absorbs powers permanently?",
+    "answer": "Rogue"
+  },
+  {
+    "id": "hard-marvel-200",
+    "topic": "MARVEL",
+    "question": "Which Marvel event resets reality after collapse?",
+    "answer": "Secret Wars"
+  },
+  {
+    "id": "hard-marvel-201",
+    "topic": "MARVEL",
+    "question": "Which Marvel hero becomes the ruler of Asgard temporarily?",
+    "answer": "Loki"
+  },
+  {
+    "id": "hard-marvel-202",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain manipulates chaos magic?",
+    "answer": "Scarlet Witch"
+  },
+  {
+    "id": "hard-marvel-203",
+    "topic": "MARVEL",
+    "question": "Which Marvel character is known as the Living Tribunal’s servant?",
+    "answer": "Doctor Strange"
+  },
+  {
+    "id": "hard-marvel-204",
+    "topic": "MARVEL",
+    "question": "Which Marvel storyline involves incursions destroying universes?",
+    "answer": "Secret Wars"
+  },
+  {
+    "id": "hard-marvel-205",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain uses adamantium claws similar to Wolverine?",
+    "answer": "X-23"
+  },
+  {
+    "id": "hard-marvel-206",
+    "topic": "MARVEL",
+    "question": "Which Marvel entity devours planets?",
+    "answer": "Galactus"
+  },
+  {
+    "id": "hard-marvel-207",
+    "topic": "MARVEL",
+    "question": "Which Marvel hero leads the Midnight Sons?",
+    "answer": "Ghost Rider"
+  },
+  {
+    "id": "hard-marvel-208",
+    "topic": "MARVEL",
+    "question": "Which Marvel artifact contains multiple realities?",
+    "answer": "Infinity Stones"
+  },
+  {
+    "id": "hard-marvel-209",
+    "topic": "MARVEL",
+    "question": "Which Marvel villain controls dreams and fear in the mind?",
+    "answer": "Nightmare"
+  },
+  {
+    "id": "hard-marvel-210",
+    "topic": "MARVEL",
+    "question": "Which Marvel character exists across all timelines simultaneously?",
+    "answer": "Kang"
+  }
+]
