@@ -401,21 +401,26 @@ input[type="number"] {
 .version-label {
   position: fixed;
   left: 50%;
-  bottom: 12px;
+  bottom: 14px;
   transform: translateX(-50%);
-  color: #e8deff;
-  font-size: 0.86rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-  align-self: center;
-  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  padding: 7px 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(53, 240, 255, 0.14));
-  border: 1px solid rgba(124, 92, 255, 0.55);
-  box-shadow: 0 0 14px rgba(124, 92, 255, 0.38), inset 0 0 10px rgba(53, 240, 255, 0.15);
-  text-shadow: 0 0 8px rgba(124, 92, 255, 0.8);
-  z-index: 30;
+  border: 1px solid rgba(53, 240, 255, 0.55);
+  background: radial-gradient(circle at 25% 20%, rgba(53, 240, 255, 0.22), rgba(10, 11, 22, 0.92) 70%);
+  color: #d7fbff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(53, 240, 255, 0.9), 0 0 18px rgba(124, 92, 255, 0.6);
+  box-shadow: 0 0 12px rgba(53, 240, 255, 0.35), 0 0 24px rgba(124, 92, 255, 0.28), inset 0 0 10px rgba(53, 240, 255, 0.12);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+  z-index: 40;
 }
 
 @media (max-width: 900px) {

@@ -1,4 +1,4 @@
-const APP_VERSION = "1.6";
+const APP_VERSION = "1.7";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
@@ -128,7 +128,6 @@ const AUCTION_REVEAL = [
 const ELEMENTS = {
   rulesBtn: document.getElementById("rulesBtn"),
   newGameBtn: document.getElementById("newGameBtn"),
-  backToStartBtn: document.getElementById("backToStartBtn"),
   versionLabel: document.getElementById("versionLabel"),
 };
 
@@ -1577,10 +1576,6 @@ function bindGlobalEvents() {
 
   ELEMENTS.rulesBtn.addEventListener("click", renderRulesScreen);
   ELEMENTS.newGameBtn.addEventListener("click", () => {
-    resetGameState();
-    renderStartScreen();
-  });
-  ELEMENTS.backToStartBtn.addEventListener("click", () => {
     resetGameState();
     renderStartScreen();
   });
