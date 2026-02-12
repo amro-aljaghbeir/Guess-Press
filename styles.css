@@ -393,34 +393,31 @@ input[type="number"] {
 .app-footer {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
-  padding-bottom: 24px;
+  padding: 8px 16px 24px;
   flex-wrap: wrap;
 }
 
 .version-label {
-  position: fixed;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
+  order: 99;
+  flex: 1 1 100%;
+  margin-top: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 140px;
   padding: 7px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(53, 240, 255, 0.55);
-  background: radial-gradient(circle at 25% 20%, rgba(53, 240, 255, 0.22), rgba(10, 11, 22, 0.92) 70%);
+  border: 1px solid rgba(53, 240, 255, 0.45);
+  background: radial-gradient(circle at 25% 20%, rgba(53, 240, 255, 0.18), rgba(10, 11, 22, 0.9) 70%);
   color: #d7fbff;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(53, 240, 255, 0.9), 0 0 18px rgba(124, 92, 255, 0.6);
-  box-shadow: 0 0 12px rgba(53, 240, 255, 0.35), 0 0 24px rgba(124, 92, 255, 0.28), inset 0 0 10px rgba(53, 240, 255, 0.12);
-  backdrop-filter: blur(3px);
-  pointer-events: none;
-  z-index: 40;
+  text-shadow: 0 0 8px rgba(53, 240, 255, 0.8), 0 0 14px rgba(124, 92, 255, 0.45);
+  box-shadow: 0 0 10px rgba(53, 240, 255, 0.26), 0 0 20px rgba(124, 92, 255, 0.22), inset 0 0 8px rgba(53, 240, 255, 0.1);
 }
 
 @media (max-width: 900px) {

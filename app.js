@@ -1,4 +1,4 @@
-const APP_VERSION = "1.7";
+const APP_VERSION = "1.8";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
