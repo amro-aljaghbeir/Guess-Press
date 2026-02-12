@@ -188,6 +188,13 @@ body {
   box-shadow: 0 0 16px rgba(53, 240, 255, 0.6);
 }
 
+
+.is-dimmed {
+  opacity: 0.45 !important;
+  filter: grayscale(0.25);
+  box-shadow: none !important;
+}
+
 .primary-btn,
 .secondary-btn,
 .ghost-btn {
@@ -394,18 +401,20 @@ input[type="number"] {
 .version-label {
   position: fixed;
   left: 50%;
-  bottom: 10px;
+  bottom: 12px;
   transform: translateX(-50%);
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  color: #e8deff;
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  font-weight: 700;
   align-self: center;
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(10, 11, 22, 0.75);
-  border: 1px solid rgba(124, 92, 255, 0.35);
-  box-shadow: 0 0 10px rgba(124, 92, 255, 0.2);
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(53, 240, 255, 0.14));
+  border: 1px solid rgba(124, 92, 255, 0.55);
+  box-shadow: 0 0 14px rgba(124, 92, 255, 0.38), inset 0 0 10px rgba(53, 240, 255, 0.15);
+  text-shadow: 0 0 8px rgba(124, 92, 255, 0.8);
   z-index: 30;
 }
 

@@ -1,4 +1,4 @@
-const APP_VERSION = "1.5";
+const APP_VERSION = "1.6";
 const screenRoot = document.getElementById("screenRoot");
 const modal = document.getElementById("modal");
 const modalContent = document.getElementById("modalContent");
@@ -741,6 +741,8 @@ function initRiskMode() {
     randomBonus: false,
     doubleReady: false,
     lastWin: null,
+    changeUsed: false,
+    answerRevealed: false,
   };
   renderRiskBoard();
 }
@@ -822,10 +824,12 @@ function updateRiskModal(remaining) {
   const container = document.createElement("div");
   container.className = "question-card";
   const answerMarkup = risk.answerRevealed ? `<div class="answer"><strong>Answer:</strong> ${question.answer}</div>` : "";
+  const activeTeamValue = risk.rerolled ? points / 2 : points;
   const metaMarkup = risk.answerRevealed
     ? ""
     : `<p style="text-align:center;">Active Team: <strong>${state.teams[state.activeTeam]}</strong></p>
-    <p style="text-align:center;">Value: ${risk.rerolled ? points / 2 : points} ${risk.randomBonus ? "+50" : ""}</p>`;
+    <p style="text-align:center;">Active-team value: ${activeTeamValue} ${risk.randomBonus ? "+50 random" : ""}</p>
+    <p style="text-align:center;">Opponent value on reroll remains full: ${points}</p>`;
   container.innerHTML = `
     <span class="tag">${tile.topic} • ${tile.difficulty.toUpperCase()}</span>
     <h2>${question.question}</h2>
@@ -845,14 +849,15 @@ function updateRiskModal(remaining) {
       risk.answerRevealed = true;
       updateRiskModal(0);
     });
-    actions.append(nextBtn);
-  } else {
+
     const changeBtn = document.createElement("button");
-    changeBtn.className = `secondary-btn${risk.changeUsed ? "" : " highlight-btn"}`;
-    changeBtn.textContent = "Change Question (Half Points)";
+    changeBtn.className = `secondary-btn${risk.changeUsed ? " is-dimmed" : " highlight-btn"}`;
+    changeBtn.textContent = risk.changeUsed ? "Change Question Used" : "Change Question (Half Points)";
     changeBtn.disabled = risk.changeUsed;
     changeBtn.addEventListener("click", () => rerollRiskQuestion());
 
+    actions.append(nextBtn, changeBtn);
+  } else {
     const teamA = document.createElement("button");
     teamA.className = "primary-btn";
     teamA.textContent = `${state.teams[0]} Correct`;
@@ -868,7 +873,7 @@ function updateRiskModal(remaining) {
     nobody.textContent = "Nobody Got It";
     nobody.addEventListener("click", () => resolveRiskQuestion(null));
 
-    actions.append(changeBtn, teamA, teamB, nobody);
+    actions.append(teamA, teamB, nobody);
   }
   showModal(container);
 }
@@ -876,19 +881,38 @@ function updateRiskModal(remaining) {
 function rerollRiskQuestion() {
   const risk = state.risk;
   const tile = risk.activeTile;
-  if (risk.changeUsed) return;
-  let newQuestion = getRandomQuestion(tile.topic, tile.difficulty);
-  if (!newQuestion) {
-    const candidates = state.topics.filter((topic) => state.questionIndex[tile.difficulty][topic]?.length);
-    if (candidates.length) {
-      newQuestion = getRandomQuestion(randomItem(candidates), tile.difficulty);
+  if (risk.changeUsed || risk.answerRevealed) return;
+
+  const previousQuestionId = tile.questionId;
+  let newQuestion = null;
+
+  for (let i = 0; i < 6; i += 1) {
+    const candidate = getRandomQuestion(tile.topic, tile.difficulty);
+    if (candidate && candidate.id !== previousQuestionId) {
+      newQuestion = candidate;
+      break;
     }
   }
+
+  if (!newQuestion) {
+    const candidates = state.topics.filter((topic) => state.questionIndex[tile.difficulty][topic]?.length);
+    for (let i = 0; i < candidates.length; i += 1) {
+      const candidate = getRandomQuestion(candidates[i], tile.difficulty);
+      if (candidate && candidate.id !== previousQuestionId) {
+        newQuestion = candidate;
+        break;
+      }
+    }
+  }
+
   if (!newQuestion) return;
+
   tile.questionId = newQuestion.id;
   risk.rerolled = true;
   risk.changeUsed = true;
   risk.answerRevealed = false;
+  clearTimers();
+  startTimer(CLASSIC_TIMERS[tile.difficulty], (remaining) => updateRiskModal(remaining));
   updateRiskModal(CLASSIC_TIMERS[tile.difficulty]);
 }
 
@@ -902,13 +926,9 @@ function resolveRiskQuestion(winnerIndex) {
     let awarded = risk.rerolled && winnerIndex === state.activeTeam ? points / 2 : points;
     if (risk.randomBonus) awarded += 50;
     state.scores[winnerIndex] += awarded;
-    if (winnerIndex === state.activeTeam) {
-      risk.lastWin = { team: winnerIndex, points: awarded };
-      risk.doubleReady = true;
-    } else {
-      risk.lastWin = null;
-      risk.doubleReady = false;
-    }
+    // Double-or-Nothing can be offered after either team scores correctly.
+    risk.lastWin = { team: winnerIndex, points: awarded };
+    risk.doubleReady = true;
   } else {
     risk.lastWin = null;
     risk.doubleReady = false;
@@ -917,13 +937,16 @@ function resolveRiskQuestion(winnerIndex) {
   risk.randomBonus = false;
   closeModal();
   updateScoreboard();
+
   if (risk.doubleReady && risk.lastWin) {
+    // Keep active team unchanged until Double-or-Nothing is addressed.
     renderDoubleOrNothing();
-  } else {
-    state.activeTeam = state.activeTeam === 0 ? 1 : 0;
-    renderRiskBoard();
-    checkEndGameRisk();
+    return;
   }
+
+  state.activeTeam = state.activeTeam === 0 ? 1 : 0;
+  renderRiskBoard();
+  checkEndGameRisk();
 }
 
 function renderDoubleOrNothing() {
@@ -931,6 +954,7 @@ function renderDoubleOrNothing() {
     <section class="panel">
       <h2>Double or Nothing</h2>
       <p style="text-align:center;">${state.teams[state.risk.lastWin.team]} can risk ${state.risk.lastWin.points} points.</p>
+      <p style="text-align:center; color: var(--muted);">Active team changes after this decision.</p>
       <div class="button-row">
         <button class="secondary-btn" id="skipDouble">Skip</button>
         <button class="primary-btn" id="startDouble">Double or Nothing</button>
@@ -1020,6 +1044,7 @@ function resolveDouble(winnerIndex) {
   tile.used = true;
   const lastWin = state.risk.lastWin;
   const basePoints = CLASSIC_POINTS[tile.difficulty];
+
   if (winnerIndex === lastWin.team) {
     state.scores[winnerIndex] += basePoints * 2;
   } else {
@@ -1028,10 +1053,12 @@ function resolveDouble(winnerIndex) {
       state.scores[winnerIndex] += basePoints;
     }
   }
+
   state.risk.doubleReady = false;
   state.risk.lastWin = null;
   closeModal();
   updateScoreboard();
+  // Turn advances only after the Double-or-Nothing flow is fully resolved.
   state.activeTeam = state.activeTeam === 0 ? 1 : 0;
   renderRiskBoard();
   checkEndGameRisk();
@@ -1410,7 +1437,7 @@ function renderRulesScreen() {
             <li>Random Pick chooses an unused tile with +50 bonus.</li>
             <li>Change Question rerolls same topic/difficulty for half points.</li>
             <li>If other team answers a rerolled question correctly, they get full points.</li>
-            <li>Double or Nothing after a win risks previous points for a new question.</li>
+            <li>Double or Nothing appears after either team scores and must be addressed before turn switches.</li>
           </ul>
         </div>
         <div class="rule-block">
